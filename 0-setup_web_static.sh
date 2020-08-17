@@ -2,7 +2,7 @@
 # Script that sets up your web servers for the deployment of web_static.
 apt-get update
 apt-get -y install nginx
-mkdir -p /data/web_static/shared
+mkdir -p /data/web_static/shared/
 mkdir -p /data/web_static/releases/test/
 echo "<html>
   <head>
@@ -12,6 +12,6 @@ echo "<html>
   </body>
 </html>" >> /data/web_static/releases/test/index.html
 ln -sf /data/web_static/releases/test/ /data/web_static/current
-chwon -R ubuntu:ubuntu /data/
-sed -i "19i \\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}" /etc/nginx/sites-available/default
+chown -R ubuntu:ubuntu /data/
+sed -i "/server_name {/a\ \\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}" /etc/nginx/sites-available/default
 service nginx restart
