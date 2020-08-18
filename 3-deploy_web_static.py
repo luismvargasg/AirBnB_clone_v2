@@ -16,8 +16,10 @@ def do_pack():
         timestamp = dt.now().strftime("%Y%m%d%H%M%S")
         filepath = "./versions/web_static_{}".format(timestamp)
         local('mkdir -p ./versions')
-        file = local('tar -cvzf {}.tgz web_static'.format(filepath))
-        return file
+        local('tar -cvzf {}.tgz web_static'.format(filepath))
+        archive_path = "{}.tgz".format(filepath)
+        if os.path.exists(archive_path):
+            return archive_path
     except:
         return None
 
