@@ -38,7 +38,6 @@ class DBStorage:
         my_dict = {}
         if cls in self.__classes:
             result = DBStorage.__session.query(cls)
-            print(result)
             for row in result:
                 key = "{}.{}".format(row.__class__.__name__, row.id)
                 my_dict[key] = row
