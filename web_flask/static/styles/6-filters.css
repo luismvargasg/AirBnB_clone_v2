@@ -54,7 +54,6 @@ section.filters  button:hover {
     padding-bottom: 25px;
     max-height: 300px;
     overflow-y: scroll;
-    overflow: hidden;
 }
 
 .locations:hover .popover,

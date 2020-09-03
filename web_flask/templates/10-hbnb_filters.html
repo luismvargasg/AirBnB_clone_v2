@@ -33,6 +33,7 @@
           <ul class="popover">
 	    {% for amenity in amenities|sort(attribute="name") %}
 	    <LI>{{ amenity.name }}</LI>
+	    {% endfor %}
           </ul>
         </div>
         <button>Search</button>
